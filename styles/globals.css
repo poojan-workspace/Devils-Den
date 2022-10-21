@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* To avoid repeating of CSS Styles inside the code */
+@layer components {
+  .navBtn {
+    @apply hidden h-6 md:inline-flex cursor-pointer text-white
+        hover:scale-125 transition-all duration-150 ease-out;
+  }
+
+  .btn {
+    @apply h-7 hover:scale-125 cursor-pointer text-theme-maroon 
+    transition-all duration-150 ease-out;
+  }
+}
