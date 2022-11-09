@@ -2,7 +2,7 @@
 
 #### Project Link: https://devils-den-1.vercel.app/
 
-#### A social media platform like Instagram built for Members of ASU with my own flavors and features. 
+#### A social media platform like Instagram built for Members of ASU, so that only ASU Members can upload posts on the app. 
 #### A Full-Stack Mobile and Web Responsive Application built using Next.JS, Tailwind CSS, Firebase v9, NextAuth, Recoil.
 #### Deployed and hosted it on cloud with Vercel (Easy and Free deploy for Next.JS Applications).
 
@@ -13,14 +13,16 @@
 ![Screenshot (139)](https://user-images.githubusercontent.com/115387678/197269526-069106eb-653b-457e-84fd-11dd70d8c0d2.png)
 
 ## Functionalities:
+
 1. Build a fully functional Social Media Feed with 'comments' and 'likes' functionalities
-2. Generated fake (but realistic) data for testing and development in the browser and node.js using Faker.JS
-3. Tailwind CSS to build a FULLY mobile Responsive Web App with utility classes
-4. Custom Authentication Screen using NextAuth (Google NextAuth Providers)
-5. Used the Firebase v9 for storing real-time User Feed (Posts, Images, UserID, UserEmail, Likes, Comments) 
-6. Used Firebase storage API to Upload Posts
-7. Used Recoil as a State Management Tool for Modal functionality (Generating a screen/modal for uploading photos)
-8. Deployed and hosted it on cloud with Vercel
+2. Anyone can sign-in and like the posts but only ASU members can upload posts and comment on it.
+3. Generated fake (but realistic) data for testing and development in the browser and node.js using Faker.JS
+4. Tailwind CSS to build a FULLY mobile Responsive Web App with utility classes
+5. Custom Authentication Screen using NextAuth (Google NextAuth Providers)
+6. Used the Firebase v9 for storing real-time User Feed (Posts, Images, UserID, UserEmail, Likes, Comments) 
+7. Used Firebase storage API to Upload Posts
+8. Used Recoil as a State Management Tool for Modal functionality (Generating a screen/modal for uploading photos)
+9. Deployed and hosted it on cloud with Vercel
 
 ## Technologies:
 Next.js [TypeScript, JavaScript], React.js, Tailwind CSS, Firebase v9, Custom NextAuth, Recoil, Faker.JS
