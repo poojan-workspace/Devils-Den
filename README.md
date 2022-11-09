@@ -2,7 +2,7 @@
 
 #### Project Link: https://devils-den-1.vercel.app/
 
-#### A social media platform like Instagram built for Members of ASU, so that only ASU Members can upload posts on the app. 
+#### A social media platform like Instagram built for Members of ASU, such that only ASU Members can upload posts on the app. Guests can access the app and like and comment on the posts but cannot upload posts.
 #### A Full-Stack Mobile and Web Responsive Application built using Next.JS, Tailwind CSS, Firebase v9, NextAuth, Recoil.
 #### Deployed and hosted it on cloud with Vercel (Easy and Free deploy for Next.JS Applications).
 
@@ -15,7 +15,7 @@
 ## Functionalities:
 
 1. Build a fully functional Social Media Feed with 'comments' and 'likes' functionalities
-2. Anyone can sign-in and like the posts but only ASU members can upload posts and comment on it.
+2. Anyone can sign-in and like and comment on the posts but only ASU members can upload posts in addition to like and comments.
 3. Generated fake (but realistic) data for testing and development in the browser and node.js using Faker.JS
 4. Tailwind CSS to build a FULLY mobile Responsive Web App with utility classes
 5. Custom Authentication Screen using NextAuth (Google NextAuth Providers)
