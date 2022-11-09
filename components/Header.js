@@ -18,6 +18,12 @@ function Header() {
   const router = useRouter();
   const [open, setOpen] = useRecoilState(modalState);
 
+  const email = session?.user.email;
+
+  const asuCheck = ["@asu.edu"];
+
+  const domain = email?.substring(email?.lastIndexOf("@"));
+
   return (
     // No className = 'header' required here as CSS part is handled inside the index.tsx file itself
     <div className="shadow-sm border-b bg-theme-maroon sticky top-0 z-50">
@@ -39,26 +45,41 @@ function Header() {
                 onClick={signOut}
                 src={session?.user?.image}
                 alt="profile pic"
-                className="h-10 w-10 rounded-full cursor-pointer border border-gold p-1 mr-8"
+                className="h-10 w-10 rounded-full cursor-pointer border border-gold p-1 mr-2"
               />
+            </>
+          )}
+          {domain == asuCheck && (
+            <>
+              <button className="text-theme-maroon border border-white p-1 rounded-md bg-white hover:scale-105 transition-all duration-150 ease-out">
+                Hello, Student
+              </button>
             </>
           )}
           <HomeIcon onClick={() => router.push("/")} className="navBtn" />
           <Bars3Icon className="h-6 md:hidden cursor-pointer text-red-900" />
           {session ? (
             <>
-              <div className="relative navBtn">
-                <PaperAirplaneIcon className="navBtn" />
-                <div className="text-black absolute -top-2 -right-1 text-xs w-5 h-5 bg-gold rounded-full flex items-center justify-center animate-pulse">
-                  3
-                </div>
-              </div>
-              <PlusCircleIcon
-                onClick={() => setOpen(true)}
-                className="navBtn"
-              />
-              <UserGroupIcon className="navBtn" />
-              <HeartIcon className="navBtn" />
+              {domain == asuCheck ? (
+                <>
+                  <div className="relative navBtn">
+                    <PaperAirplaneIcon className="navBtn" />
+                    <div className="text-black absolute -top-2 -right-1 text-xs w-5 h-5 bg-gold rounded-full flex items-center justify-center animate-pulse">
+                      3
+                    </div>
+                  </div>
+                  <PlusCircleIcon
+                    onClick={() => setOpen(true)}
+                    className="navBtn"
+                  />
+                  <UserGroupIcon className="navBtn" />
+                  <HeartIcon className="navBtn" />
+                </>
+              ) : (
+                <button className="text-theme-maroon border border-white p-1 rounded-md bg-white hover:scale-105 transition-all duration-150 ease-out">
+                  Hello, Guest
+                </button>
+              )}
             </>
           ) : (
             <button

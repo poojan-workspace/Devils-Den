@@ -22,54 +22,55 @@ function Modal() {
   const captionRef = useRef(null);
   const [loading, setLoading] = useState(false);
 
-  const uploadPost = async () => {
-    if (loading) return;
 
-    setLoading(true);
+    const uploadPost = async () => {
+      if (loading) return;
 
-    // Step 1. Create a Post and Add to the FireStore 'posts' collection
-    // Step 2. Get the post ID for the newly created post
-    // Step 3. Upload the Image to the FireBase Storage with the post ID
-    // Step 4. Get the Download URL from Firebase storage and update the original post with image
+      setLoading(true);
 
-    // Step 1
-    const docRef = await addDoc(collection(db, "posts"), {
-      username: session.user.username,
-      caption: captionRef.current.value,
-      profileImg: session.user.image,
-      timestamp: serverTimestamp(),
-    });
+      // Step 1. Create a Post and Add to the FireStore 'posts' collection
+      // Step 2. Get the post ID for the newly created post
+      // Step 3. Upload the Image to the FireBase Storage with the post ID
+      // Step 4. Get the Download URL from Firebase storage and update the original post with image
 
-    // Step 2
-    console.log("New doc added with ID", docRef.id);
+      // Step 1
+      const docRef = await addDoc(collection(db, "posts"), {
+        username: session.user.username,
+        caption: captionRef.current.value,
+        profileImg: session.user.image,
+        timestamp: serverTimestamp(),
+      });
 
-    // Step 3
-    const imageRef = ref(storage, `posts/${docRef.id}/image`);
+      // Step 2
+      console.log("New doc added with ID", docRef.id);
 
-    await uploadString(imageRef, selectedFile, "data_url").then(
-      async (snapshot) => {
-        // Step 4
-        const downloadURL = await getDownloadURL(imageRef);
-        await updateDoc(doc(db, "posts", docRef.id), {
-          image: downloadURL,
-        });
-      }
-    );
+      // Step 3
+      const imageRef = ref(storage, `posts/${docRef.id}/image`);
 
-    setOpen(false);
-    setLoading(false);
-    setSelectedFile(null);
-  };
+      await uploadString(imageRef, selectedFile, "data_url").then(
+        async (snapshot) => {
+          // Step 4
+          const downloadURL = await getDownloadURL(imageRef);
+          await updateDoc(doc(db, "posts", docRef.id), {
+            image: downloadURL,
+          });
+        }
+      );
 
-  const addImageToPost = (e) => {
-    const reader = new FileReader();
-    if (e.target.files[0]) {
-      reader.readAsDataURL(e.target.files[0]);
-    }
-    reader.onload = (readerEvent) => {
-      setSelectedFile(readerEvent.target.result);
+      setOpen(false);
+      setLoading(false);
+      setSelectedFile(null);
     };
-  };
+
+    const addImageToPost = (e) => {
+      const reader = new FileReader();
+      if (e.target.files[0]) {
+        reader.readAsDataURL(e.target.files[0]);
+      }
+      reader.onload = (readerEvent) => {
+        setSelectedFile(readerEvent.target.result);
+      };
+    };
 
   return (
     <Transition.Root show={open} as={Fragment}>

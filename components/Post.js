@@ -31,6 +31,12 @@ function Post({ id, username, userImg, img, caption }) {
   const [likes, setLikes] = useState([]);
   const [hasLiked, setHasLiked] = useState(false);
 
+  const email = session?.user.email;
+
+  const asuCheck = ["@asu.edu"];
+
+  const domain = email?.substring(email?.lastIndexOf("@"));
+
   useEffect(
     () =>
       onSnapshot(
@@ -100,7 +106,7 @@ function Post({ id, username, userImg, img, caption }) {
       <img src={img} className="object-cover w-full" alt="" />
 
       {/* BUTTONS */}
-      {session && (
+      {session && domain == asuCheck && (
         <div className="flex justify-between px-4 pt-4">
           <div className="flex space-x-4">
             {hasLiked ? (
@@ -112,6 +118,23 @@ function Post({ id, username, userImg, img, caption }) {
               <HeartIcon onClick={likePost} className="btn" />
             )}
             <ChatBubbleBottomCenterTextIcon className="btn" />
+            <PaperAirplaneIcon className="btn" />
+          </div>
+          <BookmarkIcon className="btn" />
+        </div>
+      )}
+
+      {session && domain != asuCheck && (
+        <div className="flex justify-between px-4 pt-4">
+          <div className="flex space-x-4">
+            {hasLiked ? (
+              <HeartIconFilled
+                onClick={likePost}
+                className="btn text-red-500"
+              />
+            ) : (
+              <HeartIcon onClick={likePost} className="btn" />
+            )}
             <PaperAirplaneIcon className="btn" />
           </div>
           <BookmarkIcon className="btn" />
@@ -152,7 +175,7 @@ function Post({ id, username, userImg, img, caption }) {
       )}
 
       {/* INPUT BOX */}
-      {session && (
+      {session && domain == asuCheck && (
         <form className="flex items-center p-4">
           <FaceSmileIcon className="h-7" />
           <input
