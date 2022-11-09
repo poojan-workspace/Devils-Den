@@ -175,7 +175,7 @@ function Post({ id, username, userImg, img, caption }) {
       )}
 
       {/* INPUT BOX */}
-      {session && domain == asuCheck && (
+      {session && (
         <form className="flex items-center p-4">
           <FaceSmileIcon className="h-7" />
           <input
