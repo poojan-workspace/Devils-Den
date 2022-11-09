@@ -52,7 +52,7 @@ function Header() {
           {domain == asuCheck && (
             <>
               <button className="text-theme-maroon border border-white p-1 rounded-md bg-white hover:scale-105 transition-all duration-150 ease-out">
-                Hello, Student
+                Hello, ASU
               </button>
             </>
           )}
