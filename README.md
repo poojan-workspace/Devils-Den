@@ -6,8 +6,11 @@
 #### A Full-Stack Mobile and Web Responsive Application built using Next.JS, Tailwind CSS, Firebase v9, NextAuth, Recoil.
 #### Deployed and hosted it on cloud with Vercel (Easy and Free deploy for Next.JS Applications).
 
-## Home Page: https://devils-den-1.vercel.app/
-![Screenshot (138)](https://user-images.githubusercontent.com/115387678/197269185-23753e94-53f4-4543-a202-c29cd2ddaf5c.png)
+## Home Page (For ASU Members): https://devils-den-1.vercel.app/
+![Screenshot (161)](https://user-images.githubusercontent.com/115387678/201487582-f82be886-acc1-4fb4-83e6-9bf5f49db93d.png)
+
+## Home Page (For Guests): https://devils-den-1.vercel.app/
+![Screenshot (160)](https://user-images.githubusercontent.com/115387678/201487605-0acebeae-648a-42f6-a2d0-b5517c2d1bde.png)
 
 ## SignIn Page: https://devils-den-1.vercel.app/auth/signin/
 ![Screenshot (139)](https://user-images.githubusercontent.com/115387678/197269526-069106eb-653b-457e-84fd-11dd70d8c0d2.png)
